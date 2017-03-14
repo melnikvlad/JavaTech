@@ -25,6 +25,15 @@ private String databaseURL;
 private String user ;
 private String password ;
 private String driverName ;
+private static ConClass instance;
+
+public static ConClass getInstance(){
+    if(instance==null)
+    {
+        instance = new ConClass();
+    }
+    return instance;
+}
 
     public void setDatabaseURL(String databaseURL) {
         this.databaseURL = databaseURL;
@@ -59,7 +68,7 @@ private String driverName ;
     }
 
     
-    public ConClass() {
+    private ConClass() { 
     }
 
     public Connection setConnection() throws IOException, SQLException, ClassNotFoundException{

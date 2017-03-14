@@ -11,10 +11,10 @@ public class First {
     static ResultSet result = null;
   
     public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
-        ConClass conClass = new ConClass();
-        connection = conClass.setConnection(); 
-        result = conClass.getResponse(connection);
-        conClass.makeQuery(statement, connection, result);
-        conClass.closeConnection(statement, connection, result);
+        ConClass obj = ConClass.getInstance();
+        connection = obj.setConnection(); 
+        result = obj.getResponse(connection);
+        obj.makeQuery(statement, connection, result);
+        obj.closeConnection(statement, connection, result);
 }
 }

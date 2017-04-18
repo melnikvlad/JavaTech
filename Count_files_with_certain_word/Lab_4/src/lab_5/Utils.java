@@ -1,5 +1,5 @@
 
-package lab_4;
+package lab_5;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,8 +27,6 @@ public class Utils {
         
         for (int i = 0; i < listOfFiles.length; i++) {
           if (listOfFiles[i].isFile()) {
-            System.out.println("____________________________________________________");
-            System.out.println(listOfFiles[i].getName());
             result.add(listOfFiles[i]);
           }
           else if (listOfFiles[i].isDirectory()) {
@@ -38,7 +36,14 @@ public class Utils {
     return result;
     }
      
-    public int searchCount(List<File> list) throws FileNotFoundException{
+     public void viewAllFiles(List<File> list){
+         for(File file : list){
+            //System.out.println("____________________________________________________");
+            System.out.println(file.getName()); 
+         }  
+     }
+     
+    public int searchCountWord(List<File> list) throws FileNotFoundException{
     int count = 0;
     
     for (int i=0;i<list.size();i++){
@@ -47,7 +52,27 @@ public class Utils {
         {
             String nextWord = scanner.next().trim();
             if (nextWord.equals(this.getW())) { 
-                ++count; 
+                ++count;
+                
+            }
+        }
+    }
+    return count;
+    }
+    
+    public int searchCountFiles(List<File> list) throws FileNotFoundException{
+    int count = 0;
+    boolean flag= true;
+    
+    for (int i=0;i<list.size();i++){
+        flag = true;
+    Scanner scanner = new Scanner(list.get(i));
+        while (scanner.hasNext()&& flag == true) 
+        {
+            String nextWord = scanner.next().trim();
+            if (nextWord.equals(this.getW())) { 
+                ++count;
+                flag = false;
             }
         }
     }

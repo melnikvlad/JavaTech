@@ -112,7 +112,7 @@ public static ConClass getInstance(){
             return rs;
     }
     
-    public void makeQuery(String query,Statement s,Connection c,ResultSet rs) throws SQLException
+    public ResponseClass makeQuery(String query,Statement s,Connection c,ResultSet rs) throws SQLException
     {
         
         List<String> columns = new ArrayList<>();
@@ -129,28 +129,18 @@ public static ConClass getInstance(){
         for(int i=1;i<=response.getColumnCount();i++){
             columns.add(rsM.getColumnName(i));
         }
+        response.setColumnNames(columns);
         
-        System.err.println(columns);
-
         while(rs.next()){
             row = new ArrayList<>();
             for(int i =0;i<columns.size();i++){
-                row.add(rs.getString(columns.get(i)));
-                
+                row.add(rs.getString(columns.get(i))); 
             }    
-            rows.add(row);
-            
+            rows.add(row);        
         }
-
-            
-            for(List<String> _row : rows){
-                String str ="";
-                for(int i = 0;i<_row.size();i++){
-                     str+=" | "+_row.get(i);
-                     
-                } 
-                System.out.println("Row: "+str); 
-            } 
+        response.setRows(rows);
+        
+           return response;
     }
     
     public void closeConnection(Statement s,Connection c,ResultSet rs) throws SQLException{

@@ -7,16 +7,16 @@ public class ResponseClass {
     private int columnCount;
     private List<String> tables;
     private List<String> columnNames;
-    private List<List<String>> columnData;
+    private List<List<String>> rows;
 
     public ResponseClass() {
     }
 
-    public ResponseClass(int columnCount,List<String> tables, List<String> columnNames, List<List<String>> columnData) {
+    public ResponseClass(int columnCount,List<String> tables, List<String> columnNames, List<List<String>> rows) {
         this.columnCount = columnCount;
         this.tables = tables;
         this.columnNames = columnNames;
-        this.columnData = columnData;
+        this.rows = rows;
     }
 
     public int getColumnCount() {
@@ -35,13 +35,15 @@ public class ResponseClass {
         this.columnNames = columnNames;
     }
 
-    public List<List<String>> getColumnData() {
-        return columnData;
+    public List<List<String>> getRows() {
+        return rows;
     }
 
-    public void setColumnData(List<List<String>> columnData) {
-        this.columnData = columnData;
+    public void setRows(List<List<String>> rows) {
+        this.rows = rows;
     }
+
+   
 
     public List<String> getTables() {
         return tables;

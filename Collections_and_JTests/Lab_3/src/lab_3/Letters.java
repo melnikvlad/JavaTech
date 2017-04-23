@@ -37,7 +37,7 @@ public class Letters extends AbstractCollection  {
     }
 
     public boolean retainAll(String s) {
-        s = s.toLowerCase();
+        
         boolean b = false;
         int i = 0;
         while (i<this.str.length()) {
@@ -50,9 +50,19 @@ public class Letters extends AbstractCollection  {
         };
         return b;          
     }
+    public boolean retainAll(Collection c) {
+        
+        return retainAll(c.toString());
+    }
+    
 
     public boolean addAll(String s) {
-         this.str +=s.toLowerCase();
+         this.str += s;
+        return true;
+    }
+    
+    public boolean addAll(Collection c) {
+         this.str += c.toString();
         return true;
     }
 
@@ -94,7 +104,7 @@ public class Letters extends AbstractCollection  {
     }
 
     public boolean add(Character c) {
-        c = Character.toLowerCase(c);
+      
         this.str += c;
         return true; 
     }
@@ -120,18 +130,31 @@ public class Letters extends AbstractCollection  {
  
     @Override
     public int size() {
-        return this.str.length();
+        if(this.str == null)
+        {
+            return 0;
+        }
+        else{
+         return this.str.length();   
+        }
+        
     }
     
     public Iterator<Character> iterator(){
     ArrayList a = new ArrayList();
-    char[] arrChar = new char[this.str.length()];
+    if(this.str == null){
+        char[] arrChar = new char[0]; 
+    }
+    else{
+     char[] arrChar = new char[this.str.length()];
     arrChar = this.str.toCharArray();   
-      
+ 
         for (int i = 0; i< this.str.length();i++){
            a.add(arrChar[i]);
-        }
+        } 
+    }
     return a.iterator();
     }
+    
    
 }

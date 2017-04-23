@@ -38,14 +38,13 @@ public class Utils {
      
      public void viewAllFiles(List<File> list){
          for(File file : list){
-            //System.out.println("____________________________________________________");
             System.out.println(file.getName()); 
          }  
      }
      
     public int searchCountWord(List<File> list) throws FileNotFoundException{
+        
     int count = 0;
-    
     for (int i=0;i<list.size();i++){
     Scanner scanner = new Scanner(list.get(i));
         while (scanner.hasNext()) 
@@ -61,11 +60,11 @@ public class Utils {
     }
     
     public int searchCountFiles(List<File> list) throws FileNotFoundException{
+        
     int count = 0;
     boolean flag= true;
-    
     for (int i=0;i<list.size();i++){
-        flag = true;
+    flag = true;
     Scanner scanner = new Scanner(list.get(i));
         while (scanner.hasNext()&& flag == true) 
         {

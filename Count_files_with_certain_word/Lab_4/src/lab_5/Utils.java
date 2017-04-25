@@ -35,13 +35,7 @@ public class Utils {
           }
     return result;
     }
-     
-     public void viewAllFiles(List<File> list){
-         for(File file : list){
-            System.out.println(file.getName()); 
-         }  
-     }
-     
+      
     public int searchCountWord(List<File> list) throws FileNotFoundException{
         
     int count = 0;
@@ -50,7 +44,7 @@ public class Utils {
         while (scanner.hasNext()) 
         {
             String nextWord = scanner.next().trim();
-            if (nextWord.equals(this.getW())) { 
+            if (nextWord.equals(this.w)) { 
                 ++count;
                 
             }
@@ -69,7 +63,7 @@ public class Utils {
         while (scanner.hasNext()&& flag == true) 
         {
             String nextWord = scanner.next().trim();
-            if (nextWord.equals(this.getW())) { 
+            if (nextWord.equals(this.w)) { 
                 ++count;
                 flag = false;
             }

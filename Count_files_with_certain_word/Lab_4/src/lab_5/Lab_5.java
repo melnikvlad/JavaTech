@@ -12,12 +12,7 @@ public class Lab_5 {
         File file = new File("C:\\Users\\Vlad\\AndroidStudioProjects\\YandexProject\\YandexTranslator\\MyTranslatorWithYandex_v1.01");
         String word = "for";
          Utils u = new Utils(word);
-//        
-//         System.out.println("Все файлы директории :");
-//         System.out.println("");
-//         u.viewAllFiles(u.AllFiles(file));
-//         System.out.println("");
-         
+
         long startTime = System.currentTimeMillis();
 //        
 //        try {

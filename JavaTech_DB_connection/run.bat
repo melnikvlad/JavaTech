@@ -1,1 +1,0 @@
-java -classpath .;firebirdsql-full.jar %1
